@@ -37,11 +37,11 @@ function deleteTask(index){
           onChange={(e) => setInput(e.target.value)}
           className="todo-input"
         />
-        <button onClick={addTasks}>Add</button>
+        <button onClick={addTasks} className="todo-button">Add</button>
         <p>{error}</p>
-        <ul>
+        <ul className="todo-list">
           {tasks.map((task, index) => (
-            <li key={index}>
+            <li key={index} className="todo-item">
               {task} <button onClick={()=>deleteTask(index)}>X</button>{" "}
             </li>
           ))}

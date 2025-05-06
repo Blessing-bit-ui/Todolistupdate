@@ -47,6 +47,33 @@ box-shadow:0 0 10px;
 
 }
 .todo-input{
+  width:80%;
+  padding:10px;
+  border:2px solid black;
+  border-radius:4px;
+  margin-right:5px;
+  box-shadow:0 7px 4px rgba(3,2,1,0.1)
+}
+.todo-button{
+  padding:3px;
+  background-color:white;
+  border:none;
+  cursor:pointer;
+}
+.todo-list{
+  list-style:none;
+  margin-top:20px;
+  margin-left:0px;
+
+}
+.todo-item{
+  margin-left:0px;
+  box-shadow:0 7px 4px rgba(3,2,1,0.1);
+  padding:20px;
+  text-align:left;
+
+  
+
 
 }
 
