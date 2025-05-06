@@ -61,6 +61,10 @@ box-shadow:0 0 10px;
   border:none;
   cursor:pointer;
 }
+.todo-button.hover{
+  text-color:yellow;
+  decoration:underline;
+}
 .todo-list{
   list-style:none;
   margin-top:20px;
@@ -75,6 +79,11 @@ box-shadow:0 0 10px;
 .delete-button{
   background-color:yellow;
   border:none;
+  padding:4px;
+  border-radius:2px;
+}
+.status-button{
+width:fit-content;
 }
 
 

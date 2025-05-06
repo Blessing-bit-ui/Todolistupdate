@@ -29,16 +29,15 @@ function deleteTask(index){
     setCount(count - 1 );
 }
 function handleComplete(index){
-    if(tasks.index.complete){
     setCount(count-1)
     setComplete(complete+1) 
-}}
+}
 function handleIncomplete(){
     setIncomplete(incomplete + 1)
 }
     return (
       <div className="container">
-        <h1>Todo List</h1>
+        <h1 style={{textAlign:"center"}}>Todo List</h1>
         <input
           placeholder="Enter Task"
           max="10"
@@ -49,7 +48,8 @@ function handleIncomplete(){
         <button onClick={addTasks} className="todo-button">
           Add
         </button>
-        <p>{error}</p>
+        <p style={{ color: "red", fontSize:"15px", fontStyle:"italic" }} >{error}</p>
+
         <ul className="todo-list">
           {tasks.map((task, index) => (
             <li key={index} className="todo-item">
@@ -61,8 +61,8 @@ function handleIncomplete(){
                 >
                   Remove
                 </button>
-                <button onClick={()=>handleComplete(index)}>✅</button>
-                <button onClick={handleIncomplete}>❎</button>
+                <button onClick={()=>handleComplete(index)} className="status-button">✅</button>
+                <button onClick={handleIncomplete} className="status">❎</button>
               </div>
             </li>
           ))}
