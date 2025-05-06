@@ -23,27 +23,31 @@ function Todolist(){
     setError("")
 }
 function deleteTask(index){
-    const newTasks=tasks.filter((_, task)=> task !==index)
-    setTasks(newTasks)
-    setCount(count-1)
+    const newTasks=tasks.filter((_, i)=> i !==index);
+    setTasks(newTasks);
+    setCount(count - 1 );
 }
-    return(
-        <div>
-            <input 
-            placeholder="Enter Task"
-            max="10"
-            value={input}
-            onChange={e=>setInput(e.target.value)}
-                />
-                <button onClick={addTasks}>Add</button>
-                <p>{error}</p>
+    return (
+      <div className="container">
+        <h1>Todo List</h1>
+        <input
+          placeholder="Enter Task"
+          max="10"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className="todo-input"
+        />
+        <button onClick={addTasks}>Add</button>
+        <p>{error}</p>
         <ul>
-            {tasks.map((task, index)=>(
-                <li key={index}>{task}</li>
-            ))}
+          {tasks.map((task, index) => (
+            <li key={index}>
+              {task} <button onClick={()=>deleteTask(index)}>X</button>{" "}
+            </li>
+          ))}
         </ul>
         <p>Number of Tasks to be done:{count}</p>
-        </div>
-    )
+      </div>
+    );
 }
 export default Todolist;
