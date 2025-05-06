@@ -40,7 +40,7 @@
 .container{
 max-width:400px;
 margin:40px auto;
-padding:20px;
+padding:25px;
 border:2px solid yellow;
 border-raduis:8px;
 box-shadow:0 0 10px;
@@ -51,7 +51,8 @@ box-shadow:0 0 10px;
   padding:10px;
   border:2px solid black;
   border-radius:4px;
-  margin-right:5px;
+  margin-right:10px;
+  margin-left:10px;
   box-shadow:0 7px 4px rgba(3,2,1,0.1)
 }
 .todo-button{
@@ -63,18 +64,17 @@ box-shadow:0 0 10px;
 .todo-list{
   list-style:none;
   margin-top:20px;
-  margin-left:0px;
-
 }
 .todo-item{
-  margin-left:0px;
   box-shadow:0 7px 4px rgba(3,2,1,0.1);
   padding:20px;
   text-align:left;
-
-  
-
-
+  display:flex;
+  justify-content:space-between;
+}
+.delete-button{
+  background-color:yellow;
+  border:none;
 }
 
 

@@ -4,6 +4,7 @@ function Todolist(){
     const[tasks, setTasks]=useState([])
     const[count, setCount]=useState(0)
     const[error, setError]=useState("")
+    const[incomplete, setIncomplete]=useState(0)
     const maxTasks=10;
 
     function addTasks(){
@@ -27,6 +28,10 @@ function deleteTask(index){
     setTasks(newTasks);
     setCount(count - 1 );
 }
+function handleComplete(){
+    setIncomplete(incomplete + 1)
+}
+
     return (
       <div className="container">
         <h1>Todo List</h1>
@@ -37,16 +42,31 @@ function deleteTask(index){
           onChange={(e) => setInput(e.target.value)}
           className="todo-input"
         />
-        <button onClick={addTasks} className="todo-button">Add</button>
+        <button onClick={addTasks} className="todo-button">
+          Add
+        </button>
         <p>{error}</p>
         <ul className="todo-list">
           {tasks.map((task, index) => (
             <li key={index} className="todo-item">
-              {task} <button onClick={()=>deleteTask(index)}>X</button>{" "}
+              {task}
+              <div>
+                <button
+                  onClick={() => deleteTask(index)}
+                  className="delete-button"
+                >
+                  Remove
+                </button>
+                <button>✅</button>
+                <button>❎</button>
+              </div>
             </li>
           ))}
         </ul>
-        <p>Number of Tasks to be done:{count}</p>
+        <div>
+          <p>Number of Tasks to be done:{count}</p>
+          <p>Incomplete tasks:{incomplete}</p>
+        </div>
       </div>
     );
 }
