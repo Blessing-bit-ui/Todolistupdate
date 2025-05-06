@@ -1,9 +1,10 @@
 import { useState } from "react"
 function Todolist(){
-    const[input, setInput]=useState("")
-    const[tasks, setTasks]=useState([])
-    const[count, setCount]=useState(0)
-    const[error, setError]=useState("")
+    const[input, setInput]=useState("");
+    const[tasks, setTasks]=useState([]);
+    const[count, setCount]=useState(0);
+    const[error, setError]=useState("");
+    const[complete, setComplete]=useState(0);
     const[incomplete, setIncomplete]=useState(0)
     const maxTasks=10;
 
@@ -13,7 +14,6 @@ function Todolist(){
         setCount(count+1)
         setInput("")
     }
-
     if(input==""){
         setError("Task is required");
         return;
@@ -28,10 +28,14 @@ function deleteTask(index){
     setTasks(newTasks);
     setCount(count - 1 );
 }
-function handleComplete(){
+function handleComplete(index){
+    if(tasks.index.complete){
+    setCount(count-1)
+    setComplete(complete+1) 
+}}
+function handleIncomplete(){
     setIncomplete(incomplete + 1)
 }
-
     return (
       <div className="container">
         <h1>Todo List</h1>
@@ -57,14 +61,15 @@ function handleComplete(){
                 >
                   Remove
                 </button>
-                <button>✅</button>
-                <button>❎</button>
+                <button onClick={()=>handleComplete(index)}>✅</button>
+                <button onClick={handleIncomplete}>❎</button>
               </div>
             </li>
           ))}
         </ul>
         <div>
           <p>Number of Tasks to be done:{count}</p>
+          <p>Number of Task Complete:{complete}</p>
           <p>Incomplete tasks:{incomplete}</p>
         </div>
       </div>
