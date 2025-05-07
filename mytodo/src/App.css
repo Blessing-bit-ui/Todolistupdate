@@ -61,9 +61,9 @@ box-shadow:0 0 10px;
   border:none;
   cursor:pointer;
 }
-.todo-button.hover{
-  text-color:yellow;
-  decoration:underline;
+.todo-button:hover{
+  color:yellow;
+  text-decoration:underline;
 }
 .todo-list{
   list-style:none;
@@ -77,10 +77,15 @@ box-shadow:0 0 10px;
   justify-content:space-between;
 }
 .delete-button{
-  background-color:yellow;
+  background-color:black;
+  color:white;
   border:none;
   padding:4px;
   border-radius:2px;
+}
+.delete-button:hover{
+  color:yellow;
+  background-color:white;
 }
 .status-button{
 width:fit-content;
