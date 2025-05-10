@@ -31,20 +31,25 @@ function deleteTask(index){
     setCount(count - 1 );
 }
 function handleComplete(index){
-  if(!completedIndexes.includes(index)){
-    setComplete(complete+1);
-    setCount(count-1);
-    setCompletedIndexes([...completedIndexes, index])
+  if (!completedIndexes.includes(index)) {
+    setComplete(complete + 1);
+    setCount(count - 1);
+    setCompletedIndexes([...completedIndexes, index]);
+    setIncompletedIndexes(incompleteIndexes.filter((i) => i !== index));
+    setIncomplete(
+      incompleteIndexes.includes(index) ? incomplete - 1 : incomplete
+    );
   }
+
 }
 function handleIncomplete(index){
 if(!incompleteIndexes.includes(index)){
    setIncomplete(incomplete + 1)
-   setCount(count-1)
    setIncompletedIndexes([...incompleteIndexes, index])
+   setCompletedIndexes(completedIndexes.filter((i)=>i !==index))
+   setComplete(completedIndexes.includes(index)? complete - 1: complete)
   }
 }
-
     return (
       <div className="container">
         <h1 style={{ textAlign: "center" }}>Todo List</h1>
