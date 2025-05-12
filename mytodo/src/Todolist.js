@@ -8,6 +8,7 @@ function Todolist(){
     const[incomplete, setIncomplete]=useState(0);
     const[completedIndexes, setCompletedIndexes]=useState([])
     const[incompleteIndexes, setIncompletedIndexes]=useState([])
+    const[tasksindex, setTasksindex]=useState([])
     const maxTasks=10;
 
     function addTasks(){
@@ -40,15 +41,16 @@ function handleComplete(index){
       incompleteIndexes.includes(index) ? incomplete - 1 : incomplete
     );
   }
-
 }
 function handleIncomplete(index){
 if(!incompleteIndexes.includes(index)){
-   setIncomplete(incomplete + 1)
-   setIncompletedIndexes([...incompleteIndexes, index])
-   setCompletedIndexes(completedIndexes.filter((i)=>i !==index))
-   setComplete(completedIndexes.includes(index)? complete - 1: complete)
-  }
+  setIncomplete(incomplete + 1);
+  setIncompletedIndexes([...incompleteIndexes, index]);
+  setCompletedIndexes(completedIndexes.filter((i) => i !== index));
+  setComplete(completedIndexes.includes(index) ? complete - 1 : complete);
+  setTasksindex([...tasksindex, index]);
+  setCount(tasksindex.includes(index) ? count + 1 : count);
+}
 }
     return (
       <div className="container">
